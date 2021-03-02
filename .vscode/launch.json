@@ -1,0 +1,10 @@
+{
+    "version": "1.0.0",
+    "configurations": [
+        {
+            "name": "Snapchat",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}
