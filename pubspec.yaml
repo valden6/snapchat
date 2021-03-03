@@ -24,6 +24,9 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^8.11.0
+  camera: ^0.7.0+2
+  path_provider: ^1.6.27
+  path: ^1.7.0
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
