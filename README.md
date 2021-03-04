@@ -2,6 +2,9 @@
 An application with the 2020 design of the famous snapchat app.
 
 ## Version
+### [1.3.0] 
+Adding stories screen + Refactoring screen widgets
+
 ### [1.2.0] 
 Adding camera screen + Adding preview screen + Minor bug fix
 

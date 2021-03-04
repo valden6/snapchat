@@ -23,8 +23,8 @@ class ChatScreen extends StatelessWidget {
                     ),
                     Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
                     CircleAvatar(
-                      backgroundColor: Colors.black26,
-                      child: FaIcon(FontAwesomeIcons.search,color: Colors.white, size: 20)
+                      backgroundColor: Colors.black12,
+                      child: FaIcon(FontAwesomeIcons.search,color: Colors.black54, size: 20)
                     )
                   ]
                 )
