@@ -13,7 +13,7 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
 
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
 
   @override
   Widget build(BuildContext context) {

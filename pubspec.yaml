@@ -25,8 +25,11 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^8.11.0
   camera: ^0.7.0+2
-  path_provider: ^1.6.27
-  path: ^1.7.0
+  path_provider: ^2.0.1
+  path: ^1.8.0
+  flutter_map: ^0.11.0
+  geolocator: ^6.2.1
+  geocoding: ^1.0.5
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
@@ -53,6 +56,7 @@ flutter:
 
   assets:
     - assets/avatar.jpg
+    - assets/avatar-friends.jpg
     - assets/friend-1.png
     - assets/friend-2.jpg
     - assets/friend-story-1.jpg
