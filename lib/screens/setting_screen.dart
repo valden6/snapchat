@@ -27,10 +27,10 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
         leading: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25,vertical: 10),
           child: GestureDetector(

@@ -4,7 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong/latlong.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:snapchat/animations/fadeRoute.dart';
 import 'package:snapchat/animations/slide_top_transition.dart';
+import 'package:snapchat/screens/search_screen.dart';
 import 'package:snapchat/screens/setting_screen.dart';
 
 class MapScreen extends StatefulWidget {
@@ -86,9 +88,12 @@ class _MapScreenState extends State<MapScreen> {
                               ),
                             ),
                             Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
-                            CircleAvatar(
-                              backgroundColor: Colors.black26,
-                              child: FaIcon(FontAwesomeIcons.search,color: Colors.white, size: 20)
+                            GestureDetector(
+                              onTap: () => Navigator.push(context, FadeRoute(page: SearchScreen())),
+                              child: CircleAvatar(
+                                backgroundColor: Colors.black26,
+                                child: FaIcon(FontAwesomeIcons.search,color: Colors.white, size: 20)
+                              ),
                             )
                           ]
                         )

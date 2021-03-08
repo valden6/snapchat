@@ -2,8 +2,10 @@ import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:snapchat/animations/fadeRoute.dart';
 import 'package:snapchat/animations/slide_top_transition.dart';
 import 'package:snapchat/screens/preview_screen.dart';
+import 'package:snapchat/screens/search_screen.dart';
 import 'package:snapchat/screens/setting_screen.dart';
 
 class CameraScreen extends StatefulWidget {
@@ -107,9 +109,12 @@ class _CameraScreenState extends State {
                               ),
                             ),
                             Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
-                            CircleAvatar(
-                              backgroundColor: Colors.black12,
-                              child: FaIcon(FontAwesomeIcons.search,color: Colors.white, size: 20)
+                            GestureDetector(
+                              onTap: () => Navigator.push(context, FadeRoute(page: SearchScreen())),
+                              child: CircleAvatar(
+                                backgroundColor: Colors.black12,
+                                child: FaIcon(FontAwesomeIcons.search,color: Colors.white, size: 20)
+                              ),
                             )
                           ]
                         )
