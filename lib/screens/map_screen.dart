@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong/latlong.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:snapchat/animations/slide_top_transition.dart';
+import 'package:snapchat/screens/setting_screen.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -76,9 +78,12 @@ class _MapScreenState extends State<MapScreen> {
                         padding: EdgeInsets.symmetric(horizontal: 5),
                         child: Row(
                           children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.black26,
-                              backgroundImage: AssetImage("assets/avatar.jpg"),
+                            GestureDetector(
+                              onTap: () => Navigator.push(context, SlideRightRoute(page: SettingScreen())),
+                              child: CircleAvatar(
+                                backgroundColor: Colors.black26,
+                                backgroundImage: AssetImage("assets/avatar.jpg"),
+                              ),
                             ),
                             Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
                             CircleAvatar(

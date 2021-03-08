@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:snapchat/animations/slide_top_transition.dart';
+import 'package:snapchat/screens/setting_screen.dart';
 import 'package:snapchat/widgets/spotlight_actions.dart';
 import 'package:snapchat/widgets/spotlight_content_account.dart';
 import 'package:snapchat/widgets/spotlight_content_hashtags.dart';
@@ -68,9 +70,12 @@ class _SpotlightScreenState extends State<SpotlightScreen> {
                           padding: EdgeInsets.symmetric(horizontal: 5),
                           child: Row(
                             children: [
-                              CircleAvatar(
-                                backgroundColor: Colors.black26,
-                                backgroundImage: AssetImage("assets/avatar.jpg"),
+                              GestureDetector(
+                                onTap: () => Navigator.push(context, SlideRightRoute(page: SettingScreen())),
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.black26,
+                                  backgroundImage: AssetImage("assets/avatar.jpg"),
+                                ),
                               ),
                               Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
                               CircleAvatar(

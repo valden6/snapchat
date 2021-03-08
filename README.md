@@ -2,6 +2,9 @@
 An application with the 2020 design of the famous snapchat app.
 
 ## Version
+### [1.6.0] 
+Adding setting screen + Adding slide top animation
+
 ### [1.5.0] 
 Adding spotlight screen
 

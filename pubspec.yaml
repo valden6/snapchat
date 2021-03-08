@@ -68,6 +68,9 @@ flutter:
     - assets/discover-2.jpg
     - assets/spotlight-account-icon.jpg
     - assets/spotlight-video.mp4
+    - assets/snapcode.png
+    - assets/bitmoji-friends.png
+    - assets/snapchat-logo-setting.png
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
