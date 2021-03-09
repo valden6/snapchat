@@ -31,11 +31,11 @@ class _SettingScreenState extends State<SettingScreen> {
       appBar: AppBar(
         elevation: 0,
       backgroundColor: Colors.grey[200],
-        leading: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25,vertical: 10),
-          child: GestureDetector(
-            onTap: () => Navigator.pop(context),
-            child: FaIcon(FontAwesomeIcons.chevronDown,color: Colors.black)
+        leading: GestureDetector(
+          onTap: () => Navigator.pop(context),
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 25,vertical: 10),
+            child: FaIcon(FontAwesomeIcons.chevronDown,color: Colors.black),
           ),
         ),
         actions: [

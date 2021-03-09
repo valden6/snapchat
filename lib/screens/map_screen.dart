@@ -81,7 +81,7 @@ class _MapScreenState extends State<MapScreen> {
                         child: Row(
                           children: [
                             GestureDetector(
-                              onTap: () => Navigator.push(context, SlideRightRoute(page: SettingScreen())),
+                              onTap: () => Navigator.push(context, SlideTopRoute(page: SettingScreen())),
                               child: CircleAvatar(
                                 backgroundColor: Colors.black26,
                                 backgroundImage: AssetImage("assets/avatar.jpg"),

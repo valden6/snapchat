@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:snapchat/animations/fadeRoute.dart';
 import 'package:snapchat/animations/slide_top_transition.dart';
+import 'package:snapchat/screens/add_friend_screen.dart';
 import 'package:snapchat/screens/search_screen.dart';
 import 'package:snapchat/screens/setting_screen.dart';
 import 'package:snapchat/widgets/stories_screen_stories.dart';
@@ -25,7 +26,7 @@ class StoriesScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     GestureDetector(
-                      onTap: () => Navigator.push(context, SlideRightRoute(page: SettingScreen())),
+                      onTap: () => Navigator.push(context, SlideTopRoute(page: SettingScreen())),
                       child: CircleAvatar(
                         backgroundColor: Colors.black12,
                         backgroundImage: AssetImage("assets/avatar.jpg"),
@@ -54,9 +55,12 @@ class StoriesScreen extends StatelessWidget {
               child: Container(
                 child: Row(
                   children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.black12,
-                      child: Icon( Icons.person_add,color: Colors.black54)
+                    GestureDetector(
+                      onTap: () => Navigator.push(context, SlideTopRoute(page: AddFriendScreen())),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.black12,
+                        child: Icon( Icons.person_add,color: Colors.black54)
+                      ),
                     ),
                     Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
                     CircleAvatar(

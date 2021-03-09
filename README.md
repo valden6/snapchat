@@ -2,8 +2,11 @@
 An application with the 2020 design of the famous snapchat app.
 
 ## Version
+### [1.8.0] 
+Adding friend add screen + Refactoring class name
+
 ### [1.7.0] 
-Adding search screen + Minor UI Bug fixes
+Adding search screen + minor UI bug fixes + Adding fade transition
 
 ### [1.6.0] 
 Adding setting screen + Adding slide top animation

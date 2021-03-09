@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:snapchat/animations/fadeRoute.dart';
 import 'package:snapchat/animations/slide_top_transition.dart';
+import 'package:snapchat/screens/add_friend_screen.dart';
 import 'package:snapchat/screens/preview_screen.dart';
 import 'package:snapchat/screens/search_screen.dart';
 import 'package:snapchat/screens/setting_screen.dart';
@@ -102,7 +103,7 @@ class _CameraScreenState extends State {
                         child: Row(
                           children: [
                             GestureDetector(
-                              onTap: () => Navigator.push(context, SlideRightRoute(page: SettingScreen())),
+                              onTap: () => Navigator.push(context, SlideTopRoute(page: SettingScreen())),
                               child: CircleAvatar(
                                 backgroundColor: Colors.transparent,
                                 backgroundImage: AssetImage("assets/avatar.jpg"),
@@ -129,15 +130,13 @@ class _CameraScreenState extends State {
                       child: Container(
                         child: Row(
                           children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.black12,
-                              child: Icon( Icons.person_add,color: Colors.white)
-                            ),
-                            Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
-                            CircleAvatar(
-                              backgroundColor: Colors.black12,
-                              child: FaIcon(FontAwesomeIcons.solidCommentAlt,color: Colors.white, size: 20)
-                            )
+                            GestureDetector(
+                              onTap: () => Navigator.push(context, SlideTopRoute(page: AddFriendScreen())),
+                              child: CircleAvatar(
+                                backgroundColor: Colors.black12,
+                                child: Icon( Icons.person_add,color: Colors.white)
+                              )
+                            )                           
                           ]
                         )
                       )
@@ -182,14 +181,20 @@ class _CameraScreenState extends State {
                     child: Container(
                       child: Row(
                         children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.transparent,
-                            backgroundImage: AssetImage("assets/avatar.jpg"),
+                          GestureDetector(
+                            onTap: () => Navigator.push(context, SlideTopRoute(page: SettingScreen())),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.transparent,
+                              backgroundImage: AssetImage("assets/avatar.jpg"),
+                            ),
                           ),
                           Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
-                          CircleAvatar(
-                            backgroundColor: Colors.black12,
-                            child: FaIcon(FontAwesomeIcons.search,color: Colors.white, size: 20)
+                          GestureDetector(
+                            onTap: () => Navigator.push(context, FadeRoute(page: SearchScreen())),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.black12,
+                              child: FaIcon(FontAwesomeIcons.search,color: Colors.white, size: 20)
+                            ),
                           )
                         ]
                       )
@@ -204,14 +209,12 @@ class _CameraScreenState extends State {
                     child: Container(
                       child: Row(
                         children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.black12,
-                            child: Icon( Icons.person_add,color: Colors.white)
-                          ),
-                          Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
-                          CircleAvatar(
-                            backgroundColor: Colors.black12,
-                            child: FaIcon(FontAwesomeIcons.solidCommentAlt,color: Colors.white, size: 20)
+                          GestureDetector(
+                            onTap: () => Navigator.push(context, SlideTopRoute(page: AddFriendScreen())),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.black12,
+                              child: Icon( Icons.person_add,color: Colors.white)
+                            )
                           )
                         ]
                       )
