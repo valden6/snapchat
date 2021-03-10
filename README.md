@@ -2,6 +2,9 @@
 An application with the 2020 design of the famous snapchat app.
 
 ## Version
+### [1.9.1] 
+Minor bug fixes
+
 ### [1.9.0] 
 Adding new chat screen
 

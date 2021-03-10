@@ -143,7 +143,6 @@ class _SearchScreenState extends State<SearchScreen> {
                     itemCount: _quickContactPerLoad,
                     itemBuilder: (BuildContext context, int index) {
 
-                      Color color = (index % 3 == 0) ? Colors.red : Colors.purple;
                       String userName = (index % 3 == 0) ? "Britney" : "Rico";
                       String userNameAccount = (index % 3 == 0) ? "Britney356" : "RicoSa39";
                       String userDate = (index % 3 == 0) ? "RECENTLY JOINED" : "IN MY CONTACTS";
@@ -253,7 +252,6 @@ class _SearchScreenState extends State<SearchScreen> {
                     itemCount: _trendingPerLoad,
                     itemBuilder: (BuildContext context, int index) {
 
-                      Color color = (index % 3 == 0) ? Colors.white : Colors.purple;
                       String userName = (index % 3 == 0) ? "Kevin Ged" : "Weshdene";
                       String userNameAccount = (index % 3 == 0) ? "kevs2309" : "wejdene.bk";
                       String userImg = (index % 3 == 0) ? "assets/search-trend-img-account-1.jpg" : "assets/search-trend-img-account-2.jpg";
