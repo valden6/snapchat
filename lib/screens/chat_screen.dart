@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:snapchat/animations/fadeRoute.dart';
 import 'package:snapchat/animations/slide_top_transition.dart';
 import 'package:snapchat/screens/add_friend_screen.dart';
+import 'package:snapchat/screens/new_chat_screen.dart';
 import 'package:snapchat/screens/search_screen.dart';
 import 'package:snapchat/screens/setting_screen.dart';
 
@@ -60,9 +61,12 @@ class ChatScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
-                    CircleAvatar(
-                      backgroundColor: Colors.black12,
-                      child: FaIcon(FontAwesomeIcons.solidCommentAlt,color: Colors.black54, size: 20)
+                    GestureDetector(
+                      onTap: () => Navigator.push(context, SlideTopRoute(page: NewChatScreen())),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.black12,
+                        child: FaIcon(FontAwesomeIcons.solidCommentAlt,color: Colors.black54, size: 20)
+                      ),
                     )
                   ]
                 )
