@@ -4,7 +4,7 @@ class SlideTopRoute extends PageRouteBuilder {
 
   final Widget page;
 
-  SlideTopRoute({this.page})
+  SlideTopRoute({required this.page})
   : super(
       pageBuilder: (
         BuildContext context,

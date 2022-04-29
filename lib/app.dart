@@ -39,11 +39,11 @@ class _AppState extends State<App> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             label: "Map",
-            icon: _selectedIndex==0? FaIcon(FontAwesomeIcons.mapMarkerAlt, color: Colors.lightGreen):FaIcon(FontAwesomeIcons.mapMarkerAlt)
+            icon: _selectedIndex==0? FaIcon(FontAwesomeIcons.locationDot, color: Colors.lightGreen):FaIcon(FontAwesomeIcons.locationDot)
           ),
           BottomNavigationBarItem(
             label: "Chat",
-            icon: _selectedIndex==1? FaIcon(FontAwesomeIcons.commentAlt, color: Colors.blue):FaIcon(FontAwesomeIcons.commentAlt)
+            icon: _selectedIndex==1? FaIcon(FontAwesomeIcons.message, color: Colors.blue):FaIcon(FontAwesomeIcons.message)
           ),
           BottomNavigationBarItem(
             label: "Camera",
@@ -51,7 +51,7 @@ class _AppState extends State<App> {
           ),
           BottomNavigationBarItem(
             label: "Stories",
-            icon: _selectedIndex==3? FaIcon(FontAwesomeIcons.userFriends, color: Colors.purple):FaIcon(FontAwesomeIcons.userFriends)
+            icon: _selectedIndex==3? FaIcon(FontAwesomeIcons.userGroup, color: Colors.purple):FaIcon(FontAwesomeIcons.userGroup)
           ),
           BottomNavigationBarItem(
             label: "Spotlight",

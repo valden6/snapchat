@@ -1,5 +1,4 @@
 import 'package:camera/camera.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:snapchat/animations/fadeRoute.dart';
@@ -16,10 +15,10 @@ class CameraScreen extends StatefulWidget {
 
 class _CameraScreenState extends State {
 
-  CameraController controller;
-  List cameras;
-  int selectedCameraIndex;
-  String imgPath;
+  CameraController? controller;
+  List cameras = [];
+  int selectedCameraIndex = 0;
+  String imgPath = "";
 
   @override
   void initState() {
@@ -42,23 +41,25 @@ class _CameraScreenState extends State {
   }
 
   Future _initCameraController(CameraDescription cameraDescription) async {
+
     if (controller != null) {
-      await controller.dispose();
+      await controller!.dispose();
     }
+
     controller = CameraController(cameraDescription, ResolutionPreset.high);
 
-    controller.addListener(() {
+    controller!.addListener(() {
       if (mounted) {
         setState(() {});
       }
 
-      if (controller.value.hasError) {
-        print('Camera error ${controller.value.errorDescription}');
+      if (controller!.value.hasError) {
+        print('Camera error ${controller!.value.errorDescription}');
       }
     });
 
     try {
-      await controller.initialize();
+      await controller!.initialize();
     } on CameraException catch (e) {
       _showCameraException(e);
     }
@@ -69,7 +70,7 @@ class _CameraScreenState extends State {
 
   @override
   Widget build(BuildContext context) {
-    if(cameras == null || cameras.length == 0){
+    if(cameras.length == 0){
       return Scaffold(
         backgroundColor: Colors.black,
         body: Container(
@@ -114,7 +115,7 @@ class _CameraScreenState extends State {
                               onTap: () => Navigator.push(context, FadeRoute(page: SearchScreen())),
                               child: CircleAvatar(
                                 backgroundColor: Colors.black12,
-                                child: FaIcon(FontAwesomeIcons.search,color: Colors.white, size: 20)
+                                child: FaIcon(FontAwesomeIcons.magnifyingGlass,color: Colors.white, size: 20)
                               ),
                             )
                           ]
@@ -193,7 +194,7 @@ class _CameraScreenState extends State {
                             onTap: () => Navigator.push(context, FadeRoute(page: SearchScreen())),
                             child: CircleAvatar(
                               backgroundColor: Colors.black12,
-                              child: FaIcon(FontAwesomeIcons.search,color: Colors.white, size: 20)
+                              child: FaIcon(FontAwesomeIcons.magnifyingGlass,color: Colors.white, size: 20)
                             ),
                           )
                         ]
@@ -231,12 +232,12 @@ class _CameraScreenState extends State {
 
   /// Display Camera preview.
   Widget _cameraPreviewWidget() {
-    if (controller == null || !controller.value.isInitialized) {
+    if (controller == null || !controller!.value.isInitialized) {
       return const Text('Loading',style: TextStyle(color: Colors.white,fontSize: 20.0,fontWeight: FontWeight.w900));
     }
     return GestureDetector(
       onDoubleTap: _onSwitchCamera,
-      child: CameraPreview(controller)
+      child: CameraPreview(controller!)
     );
   }
 
@@ -247,10 +248,10 @@ class _CameraScreenState extends State {
 
   void _onCapturePressed(context) async {
     try {
-      final image = await controller.takePicture();
+      final image = await controller!.takePicture();
       Navigator.push(context,MaterialPageRoute(builder: (context) => PreviewScreen(imgPath: image.path)));
     } catch (e) {
-      _showCameraException(e);
+      _showCameraException(e as CameraException);
     }
   }
 

@@ -40,7 +40,7 @@ class AddFriendScreen extends StatelessWidget {
                           flex: 1,
                           child: Container(
                             alignment: Alignment.centerRight,
-                            child: FaIcon(FontAwesomeIcons.ellipsisH,color: Colors.black,size: 20),
+                            child: FaIcon(FontAwesomeIcons.ellipsis,color: Colors.black,size: 20),
                           )
                         )
                       ]
@@ -61,7 +61,7 @@ class AddFriendScreen extends StatelessWidget {
                           border: InputBorder.none,
                           prefixIcon: Padding(
                             padding: EdgeInsets.only(left:10, right: 10),
-                            child: FaIcon(FontAwesomeIcons.search, color: Colors.black, size: 20),
+                            child: FaIcon(FontAwesomeIcons.magnifyingGlass, color: Colors.black, size: 20),
                           ),
                           hintText: "Find Friends",
                           hintStyle: TextStyle(color: Colors.black45,fontWeight: FontWeight.bold),
@@ -163,7 +163,7 @@ class AddFriendScreen extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: Container(
-                                child: Center(child: FaIcon(FontAwesomeIcons.times,color: Colors.grey[300],size: 15)),
+                                child: Center(child: FaIcon(FontAwesomeIcons.xmark,color: Colors.grey[300],size: 15)),
                               )
                             )
                           ]
@@ -273,7 +273,7 @@ class AddFriendScreen extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: Container(
-                                child: Center(child: FaIcon(FontAwesomeIcons.times,color: Colors.grey[300],size: 15)),
+                                child: Center(child: FaIcon(FontAwesomeIcons.xmark,color: Colors.grey[300],size: 15)),
                               )
                             )
                           ]

@@ -1,9 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:latlong/latlong.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:snapchat/animations/fadeRoute.dart';
 import 'package:snapchat/animations/slide_top_transition.dart';
 import 'package:snapchat/screens/search_screen.dart';
@@ -16,21 +18,36 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
 
-  String _currentCity;
-  Position _currentPosition;
+  String _currentCity = "";
+  Position? _currentPosition;
   MapController mapController = MapController();
 
   _getCurrentLocation() async {
-    
-    _currentPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    await _getAddressFromLatLng();
 
-    mapController.move(LatLng(_currentPosition.latitude,_currentPosition.longitude), 14);
+    final LocationPermission locationPermission = await Geolocator.checkPermission();
+
+    log(locationPermission.toString());
+
+    if(locationPermission == LocationPermission.always || locationPermission == LocationPermission.whileInUse){
+        _currentPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+        await _getAddressFromLatLng();
+        mapController.move(LatLng(_currentPosition!.latitude,_currentPosition!.longitude), 14);
+    } else {
+
+      final LocationPermission locationPermission = await Geolocator.requestPermission();
+      
+      if(locationPermission == LocationPermission.always || locationPermission == LocationPermission.whileInUse){
+        _currentPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+        await _getAddressFromLatLng();
+        mapController.move(LatLng(_currentPosition!.latitude,_currentPosition!.longitude), 14);
+      }
+    }
+  
   }
 
   _getAddressFromLatLng() async {
     try {
-      List<Placemark> placemark = await placemarkFromCoordinates(_currentPosition.latitude,_currentPosition.longitude);
+      List<Placemark> placemark = await placemarkFromCoordinates(_currentPosition!.latitude,_currentPosition!.longitude);
       Placemark place = placemark[0];
 
       setState(() {
@@ -55,7 +72,7 @@ class _MapScreenState extends State<MapScreen> {
             FlutterMap(
               mapController: mapController,
               options: MapOptions(
-                center: _currentPosition == null ? LatLng(40.74911596007762, -73.98552155151941) : LatLng(_currentPosition.latitude,_currentPosition.longitude),
+                center: _currentPosition == null ? LatLng(40.74911596007762, -73.98552155151941) : LatLng(_currentPosition!.latitude,_currentPosition!.longitude),
                 zoom: 13,
               ),
               layers: [
@@ -92,7 +109,7 @@ class _MapScreenState extends State<MapScreen> {
                               onTap: () => Navigator.push(context, FadeRoute(page: SearchScreen())),
                               child: CircleAvatar(
                                 backgroundColor: Colors.black26,
-                                child: FaIcon(FontAwesomeIcons.search,color: Colors.white, size: 20)
+                                child: FaIcon(FontAwesomeIcons.magnifyingGlass,color: Colors.white, size: 20)
                               ),
                             )
                           ]
@@ -108,7 +125,7 @@ class _MapScreenState extends State<MapScreen> {
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.black26,
                           ),
-                          child: Text(_currentCity==null ? "New York" : _currentCity,textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w900,fontSize: 18))
+                          child: Text(_currentCity== "" ? "New York" : _currentCity,textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w900,fontSize: 18))
                         ),
                       )
                     ),
@@ -119,7 +136,7 @@ class _MapScreenState extends State<MapScreen> {
                         alignment: Alignment.centerRight,
                         child: CircleAvatar(
                           backgroundColor: Colors.black26,
-                          child: FaIcon(FontAwesomeIcons.cog,color: Colors.white, size: 20)
+                          child: FaIcon(FontAwesomeIcons.gear,color: Colors.white, size: 20)
                         )
                       )
                     )

@@ -2,6 +2,8 @@
 An application with the 2020 design of the famous snapchat app.
 
 ## Version
+### [1.10.0] 
+Upgrade project to Android embedding v2 + Update flutter sdk to null safety + update all dependencies
 ### [1.9.1] 
 Minor bug fixes
 

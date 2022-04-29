@@ -1,15 +1,13 @@
 import 'dart:io';
 import 'dart:typed_data';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PreviewScreen extends StatefulWidget{
   
   final String imgPath;
 
-  PreviewScreen({this.imgPath});
+  PreviewScreen({required this.imgPath});
 
   @override
   _PreviewScreenState createState() => _PreviewScreenState();
@@ -35,7 +33,7 @@ class _PreviewScreenState extends State<PreviewScreen>{
                   left: 10,
                   child: IconButton(
                     onPressed: () => Navigator.pop(context),
-                    icon: FaIcon(FontAwesomeIcons.times,color: Colors.white,size: 27,)
+                    icon: FaIcon(FontAwesomeIcons.xmark,color: Colors.white,size: 27,)
                   ),
                 )
               ]
@@ -58,7 +56,7 @@ class _PreviewScreenState extends State<PreviewScreen>{
                               color: Colors.grey[900],
                               borderRadius: BorderRadius.circular(15)
                             ),
-                            child: Center(child: FaIcon(FontAwesomeIcons.save,color:Colors.white))
+                            child: Center(child: FaIcon(FontAwesomeIcons.floppyDisk,color:Colors.white))
                           ),
                           Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
                           Container(
@@ -68,7 +66,7 @@ class _PreviewScreenState extends State<PreviewScreen>{
                               color: Colors.grey[900],
                               borderRadius: BorderRadius.circular(15)
                             ),
-                            child: Center(child: FaIcon(FontAwesomeIcons.shareSquare,color:Colors.white))
+                            child: Center(child: FaIcon(FontAwesomeIcons.shareFromSquare,color:Colors.white))
                           )
                         ]
                       )
@@ -106,7 +104,7 @@ class _PreviewScreenState extends State<PreviewScreen>{
   }
 
   Future<ByteData> getBytesFromFile() async{
-    Uint8List bytes = File(widget.imgPath).readAsBytesSync() as Uint8List;
+    Uint8List bytes = File(widget.imgPath).readAsBytesSync();
     return ByteData.view(bytes.buffer);
   }
 }

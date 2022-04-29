@@ -46,7 +46,7 @@ class _SpotlightActionsState extends State<SpotlightActions> {
                   Padding(padding: EdgeInsets.only(top:20)),
                   CircleAvatar(
                     backgroundColor: Colors.black26,
-                    child: FaIcon(FontAwesomeIcons.ellipsisH, color: Colors.white, size: 20),
+                    child: FaIcon(FontAwesomeIcons.ellipsis, color: Colors.white, size: 20),
                   )
                 ]
               )

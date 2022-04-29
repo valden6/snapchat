@@ -8,7 +8,7 @@ class NewChatScreen extends StatefulWidget {
 
 class _NewChatScreenState extends State<NewChatScreen> {
 
-  bool _valid;
+  bool _valid = false;
 
   @override
   void initState() {

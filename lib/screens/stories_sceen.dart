@@ -37,7 +37,7 @@ class StoriesScreen extends StatelessWidget {
                       onTap: () => Navigator.push(context, FadeRoute(page: SearchScreen())),
                       child: CircleAvatar(
                         backgroundColor: Colors.black12,
-                        child: FaIcon(FontAwesomeIcons.search,color: Colors.black54, size: 20)
+                        child: FaIcon(FontAwesomeIcons.magnifyingGlass,color: Colors.black54, size: 20)
                       ),
                     )
                   ]
@@ -65,7 +65,7 @@ class StoriesScreen extends StatelessWidget {
                     Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
                     CircleAvatar(
                       backgroundColor: Colors.black12,
-                      child: FaIcon(FontAwesomeIcons.ellipsisH,color: Colors.black54, size: 20)
+                      child: FaIcon(FontAwesomeIcons.ellipsis,color: Colors.black54, size: 20)
                     )
                   ]
                 )

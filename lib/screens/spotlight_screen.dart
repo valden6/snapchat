@@ -17,7 +17,7 @@ class SpotlightScreen extends StatefulWidget {
 
 class _SpotlightScreenState extends State<SpotlightScreen> {
 
-  VideoPlayerController _controller;
+  late VideoPlayerController _controller;
 
   @override
   void initState() {
@@ -84,7 +84,7 @@ class _SpotlightScreenState extends State<SpotlightScreen> {
                                 onTap: () => Navigator.push(context, FadeRoute(page: SearchScreen())),
                                 child: CircleAvatar(
                                   backgroundColor: Colors.black26,
-                                  child: FaIcon(FontAwesomeIcons.search,color: Colors.white, size: 20)
+                                  child: FaIcon(FontAwesomeIcons.magnifyingGlass,color: Colors.white, size: 20)
                                 ),
                               )
                             ]

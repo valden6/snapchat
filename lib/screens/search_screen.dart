@@ -8,8 +8,8 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   
-  String _quickContactInteractiveName;
-  String _trendingInteractiveName;
+  String _quickContactInteractiveName = "";
+  String _trendingInteractiveName = "";
   int _quickContactPerLoad = 4;
   int _trendingPerLoad = 10;
 
@@ -48,7 +48,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     border: InputBorder.none,
                     prefixIcon: Padding(
                       padding: const EdgeInsets.only(left:10, right: 10),
-                      child: FaIcon(FontAwesomeIcons.search, color: Colors.black, size: 20),
+                      child: FaIcon(FontAwesomeIcons.magnifyingGlass, color: Colors.black, size: 20),
                     ),
                     hintText: "Search",
                     hintStyle: TextStyle(color: Colors.black38,fontWeight: FontWeight.bold),
@@ -217,7 +217,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               Expanded(
                                 flex: 1,
                                 child: Container(
-                                  child: Center(child: FaIcon(FontAwesomeIcons.times,color: Colors.grey[300],size: 15)),
+                                  child: Center(child: FaIcon(FontAwesomeIcons.xmark,color: Colors.grey[300],size: 15)),
                                 )
                               )
                             ]
@@ -347,7 +347,7 @@ class _SearchScreenState extends State<SearchScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => null,
         backgroundColor: Colors.black,
-        child: FaIcon(FontAwesomeIcons.search,size: 20),
+        child: FaIcon(FontAwesomeIcons.magnifyingGlass,size: 20),
       ),
     );
   }

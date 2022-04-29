@@ -35,7 +35,7 @@ class ChatScreen extends StatelessWidget {
                       onTap: () => Navigator.push(context, FadeRoute(page: SearchScreen())),
                       child: CircleAvatar(
                         backgroundColor: Colors.black12,
-                        child: FaIcon(FontAwesomeIcons.search,color: Colors.black54, size: 20)
+                        child: FaIcon(FontAwesomeIcons.magnifyingGlass,color: Colors.black54, size: 20)
                       ),
                     )
                   ]
@@ -65,7 +65,7 @@ class ChatScreen extends StatelessWidget {
                       onTap: () => Navigator.push(context, SlideTopRoute(page: NewChatScreen())),
                       child: CircleAvatar(
                         backgroundColor: Colors.black12,
-                        child: FaIcon(FontAwesomeIcons.solidCommentAlt,color: Colors.black54, size: 20)
+                        child: FaIcon(FontAwesomeIcons.solidMessage,color: Colors.black54, size: 20)
                       ),
                     )
                   ]

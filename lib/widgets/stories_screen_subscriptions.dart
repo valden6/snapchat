@@ -24,7 +24,7 @@ class StoriesScreenSubscriptions extends StatelessWidget {
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  colorFilter: ColorFilter.mode(Colors.grey[400], BlendMode.darken),
+                  colorFilter: ColorFilter.mode(Colors.grey[400]!, BlendMode.darken),
                   fit: BoxFit.fill,
                   image: AssetImage(subImg)
                 )

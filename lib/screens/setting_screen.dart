@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:latlong/latlong.dart';
+import 'package:latlong2/latlong.dart';
 
 class SettingScreen extends StatefulWidget {
   @override
@@ -11,7 +11,7 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
 
-  Position _currentPosition;
+  Position? _currentPosition;
   MapController mapController = MapController();
 
   @override
@@ -41,7 +41,7 @@ class _SettingScreenState extends State<SettingScreen> {
         actions: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 25,vertical: 10),
-            child: FaIcon(FontAwesomeIcons.cog,color: Colors.black,),
+            child: FaIcon(FontAwesomeIcons.gear,color: Colors.black,),
           )
         ]
       ),
@@ -76,7 +76,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       child: Row(
                         children: [
-                          FaIcon(FontAwesomeIcons.balanceScale,color: Colors.white,size: 12),
+                          FaIcon(FontAwesomeIcons.scaleBalanced,color: Colors.white,size: 12),
                           Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
                           FaIcon(FontAwesomeIcons.chevronRight,color: Colors.white,size: 8)
                         ],
@@ -148,7 +148,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         Expanded(
                           flex: 1,
                           child: Container(
-                            child: FaIcon(FontAwesomeIcons.ellipsisV,color: Colors.grey,size: 20)
+                            child: FaIcon(FontAwesomeIcons.ellipsisVertical,color: Colors.grey,size: 20)
                           )
                         )
                       ]
@@ -182,7 +182,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         Expanded(
                           flex: 1,
                           child: Container(
-                            child: FaIcon(FontAwesomeIcons.ellipsisV,color: Colors.grey,size: 20)
+                            child: FaIcon(FontAwesomeIcons.ellipsis,color: Colors.grey,size: 20)
                           )
                         )
                       ]
@@ -344,7 +344,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                 child: Row(
                                   children: [
                                     Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
-                                    FaIcon(FontAwesomeIcons.tshirt,color: Colors.grey,size: 20),
+                                    FaIcon(FontAwesomeIcons.shirt,color: Colors.grey,size: 20),
                                     Padding(padding: EdgeInsets.symmetric(horizontal: 8)),
                                     Text("Change My Outfit",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),)
                                   ]
@@ -396,7 +396,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                 child: Row(
                                   children: [
                                     Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
-                                    FaIcon(FontAwesomeIcons.userCircle,color: Colors.grey,size: 20),
+                                    FaIcon(FontAwesomeIcons.circleUser,color: Colors.grey,size: 20),
                                     Padding(padding: EdgeInsets.symmetric(horizontal: 8)),
                                     Text("Select Selfie",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),)
                                   ]
@@ -437,8 +437,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         height: 140,
                         child: FlutterMap(
                           options: MapOptions(
-                            interactive: false,
-                            center: _currentPosition == null ? LatLng(40.74911596007762, -73.98552155151941) : LatLng(_currentPosition.latitude,_currentPosition.longitude),
+                            center: _currentPosition == null ? LatLng(40.74911596007762, -73.98552155151941) : LatLng(_currentPosition!.latitude,_currentPosition!.longitude),
                             zoom: 13,
                           ),
                           layers: [
@@ -462,7 +461,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                 child: Row(
                                   children: [
                                     Padding(padding: EdgeInsets.symmetric(horizontal: 10)),
-                                    FaIcon(FontAwesomeIcons.mapMarkerAlt,color: Colors.grey,size: 20),
+                                    FaIcon(FontAwesomeIcons.locationDot,color: Colors.grey,size: 20),
                                     Padding(padding: EdgeInsets.symmetric(horizontal: 8)),
                                     Column(
                                       children: [
